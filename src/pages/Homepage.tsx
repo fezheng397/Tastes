@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Container } from '../components';
 
 interface HomepageProps {}
 
@@ -28,30 +29,38 @@ const tabContent: TabData[] = [
 ];
 
 const Homepage = ({}) => {
-  const [active, setActive] = useState('music');
+  const [active, setActive] = useState(tabContent[0]);
 
   return (
-    <Container>
-      <Nav>
-        Header 1
-        <Tabs>
-          {tabContent.map((content) => (
-            <Tab>{content.id}</Tab>
-          ))}
-        </Tabs>
-      </Nav>
-    </Container>
+    <HomepageContainer>
+      <Container>
+        <Nav>
+          <NavLogo href='/'>Heading</NavLogo>
+          <Tabs>
+            {tabContent.map((content) => (
+              <Tab>
+                <TabContents>{content.displayName}</TabContents>
+              </Tab>
+            ))}
+          </Tabs>
+        </Nav>
+      </Container>
+    </HomepageContainer>
   );
 };
 
-const Container = styled.div``;
+const HomepageContainer = styled.div``;
 
 const Nav = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
   height: 69px;
+`;
+
+const NavLogo = styled.a`
+  font-size: 24px;
+  font-weight: 600;
 `;
 
 const Tabs = styled.div`
@@ -61,7 +70,19 @@ const Tabs = styled.div`
 `;
 
 const Tab = styled.div`
-  padding: 8px;
+  font-weight: 500;
+  padding: 0 8px;
+`;
+
+const TabContents = styled.div`
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 22px;
+  transition: background 200ms ease-in;
+
+  &:hover {
+    background: rgb(247, 247, 247);
+  }
 `;
 
 export default Homepage;
