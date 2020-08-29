@@ -11,7 +11,8 @@ const ResetStyles = createGlobalStyle`
   }
 
   div, p, a {
-    line-height: 18px;
+    line-height: 1;
+    font-style: normal;
   }
 
   a {
