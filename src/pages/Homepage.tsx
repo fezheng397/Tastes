@@ -14,17 +14,17 @@ const tabContent: TabData[] = [
   {
     id: 'music',
     displayName: 'Music',
-    component: <div></div>,
+    component: <div>Music</div>,
   },
   {
     id: 'articles',
     displayName: 'Articles',
-    component: <div></div>,
+    component: <div>Articles</div>,
   },
   {
     id: 'readings',
     displayName: 'Readings',
-    component: <div></div>,
+    component: <div>Readings</div>,
   },
 ];
 
@@ -39,12 +39,15 @@ const Homepage = ({}) => {
           <Tabs>
             {tabContent.map((content) => (
               <Tab>
-                <TabContents>{content.displayName}</TabContents>
+                <TabContents onClick={() => setActive(content)}>
+                  {content.displayName}
+                </TabContents>
               </Tab>
             ))}
           </Tabs>
         </Nav>
       </Container>
+      <Container>{active.component}</Container>
     </HomepageContainer>
   );
 };
