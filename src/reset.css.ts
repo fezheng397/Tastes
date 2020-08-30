@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+import { css, createGlobalStyle } from 'styled-components';
+import { theme } from 'constants/theme';
 
 const ResetStyles = createGlobalStyle`
   body {
@@ -7,18 +8,30 @@ const ResetStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: #fff;
-    font-family: 'Mukta', sans-serif;
+    font-family: ${theme.fonts.primary};
   }
 
-  div, p, a {
+  div,
+  p,
+  a,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  li,
+  ul {
     line-height: 1;
     font-style: normal;
+    margin: 0;
   }
 
   a {
     text-decoration: none;
     color: #333;
   }
+
 
 `;
 

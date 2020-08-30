@@ -10,7 +10,7 @@ const Container: React.FC<ContainerProps> = ({ children }) => {
 };
 
 const ContainerWrapper = styled.div`
-  max-width: 1040px;
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
 `;

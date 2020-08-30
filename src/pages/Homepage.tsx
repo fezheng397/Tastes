@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Container } from '../components';
+import { Container } from 'components';
+import { Music, Articles } from 'pages';
 
 interface HomepageProps {}
 
@@ -14,12 +15,12 @@ const tabContent: TabData[] = [
   {
     id: 'music',
     displayName: 'Music',
-    component: <div>Music</div>,
+    component: <Music />,
   },
   {
     id: 'articles',
     displayName: 'Articles',
-    component: <div>Articles</div>,
+    component: <Articles />,
   },
   {
     id: 'readings',

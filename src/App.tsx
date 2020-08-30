@@ -2,13 +2,16 @@ import React from 'react';
 import logo from './logo.svg';
 import Homepage from './pages/Homepage';
 import ResetStyles from './reset.css';
-
+import { ThemeProvider } from 'styled-components';
+import { theme } from 'constants/theme';
 function App() {
   return (
-    <div className='App'>
-      <ResetStyles />
-      <Homepage />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className='App'>
+        <ResetStyles />
+        <Homepage />
+      </div>
+    </ThemeProvider>
   );
 }
 
