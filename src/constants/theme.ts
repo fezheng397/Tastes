@@ -1,5 +1,3 @@
-import { generateKeyPair } from 'crypto';
-
 const colors = {
   text: {
     gray: '#727174',

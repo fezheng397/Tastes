@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import axios, { AxiosRequestConfig } from 'axios';
 import { clientId, clientSecret } from '../spotifyCreds';
 import querystring from 'querystring';

@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import Homepage from './pages/Homepage';
 import ResetStyles from './reset.css';
 import { ThemeProvider } from 'styled-components';

@@ -33,7 +33,7 @@ const ContentContainer = styled.div`
 
 interface ArticlesProps {}
 
-const Articles: React.FC<ArticlesProps> = ({}) => {
+const Articles: React.FC<ArticlesProps> = () => {
   const [category, setCategory] = useState('technology');
   return (
     <Container>
