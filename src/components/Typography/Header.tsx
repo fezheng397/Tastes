@@ -20,9 +20,19 @@ interface HeaderProps {
   weight?: number;
 }
 
-const Header: React.FC<HeaderProps> = ({ as = 'h1', children, className }) => {
+const Header: React.FC<HeaderProps> = ({
+  as = 'h1',
+  children,
+  className,
+  color,
+  weight,
+}) => {
   const Component = headerMap[as];
-  return <Component className={className}>{children}</Component>;
+  return (
+    <Component className={className} color={color} weight={weight}>
+      {children}
+    </Component>
+  );
 };
 
 export default Header;

@@ -14,6 +14,7 @@ interface TextProps {
   className?: string;
   color?: string;
   size?: TextSize;
+  weight?: number;
 }
 
 const Text: React.FC<TextProps> = ({
@@ -21,10 +22,11 @@ const Text: React.FC<TextProps> = ({
   children,
   className,
   color,
+  weight,
 }) => {
   const Component = sizeMap[size];
   return (
-    <Component className={className} color={color}>
+    <Component className={className} color={color} weight={weight}>
       {children}
     </Component>
   );

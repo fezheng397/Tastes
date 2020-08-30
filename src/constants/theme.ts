@@ -7,6 +7,14 @@ const colors = {
     blackAccent: '#252525',
     white: '#FFFFFF',
   },
+  teal: {
+    dark: '#03045e',
+    base: '#023e8a',
+    light56: '#90e0ef',
+  },
+  salmon: {
+    base: '#ee8572',
+  },
 };
 
 const fonts = {

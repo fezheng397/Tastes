@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { Header, Text } from 'components/Typography';
 import { theme } from 'constants/theme';
+import { ArtistObjectSimplified, PlaylistTrackObject } from 'types/spotify';
 
 interface TrackProps {
   index: number;
-  item: any;
+  item: PlaylistTrackObject;
 }
 
 const Track: React.FC<TrackProps> = ({ index, item }) => {
@@ -28,9 +29,14 @@ const Track: React.FC<TrackProps> = ({ index, item }) => {
             </Text>
           </TrackNumber>
           <TrackInfo>
-            <Header as='h6'>{item.track.name}</Header>
+            <TrackName>
+              <Header as='h6' weight={500}>
+                {item.track.name}
+              </Header>
+            </TrackName>
+
             <Text color={theme.text.light56} size='sm'>
-              {item.track.artists[0].name}
+              {getArtistNames(item.track.artists)}
             </Text>
           </TrackInfo>
         </TrackHeader>
@@ -45,13 +51,25 @@ const Track: React.FC<TrackProps> = ({ index, item }) => {
   );
 };
 
+function getArtistNames(artists: ArtistObjectSimplified[]) {
+  let displayName = '';
+  artists.forEach((artist, idx) => {
+    if (idx === 0) {
+      displayName = displayName.concat(artist.name);
+    } else {
+      displayName = displayName.concat(`, ${artist.name}`);
+    }
+  });
+
+  return displayName;
+}
+
 const TrackWrapper = styled.div<{ active: boolean }>`
   ${({ active, theme }) => css`
     padding: 12px;
     border-radius: 8px;
     cursor: pointer;
 
-    border-top: ${!active && '1px #efefef solid'};
     ${active &&
     css`
       box-shadow: ${theme.shadows.small};
@@ -66,21 +84,28 @@ const TrackHeader = styled.div`
 
 const TrackNumber = styled.div<{ active: boolean }>`
   margin-right: 20px;
-  height: 24px;
-  width: 24px;
+  height: 32px;
+  width: 32px;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  font-weight: 600;
+  transition: background 100ms ease-in;
 
   ${({ active, theme }) =>
     active &&
     css`
-      background: ${theme.text.dark};
+      background: ${theme.colors.teal.dark};
     `}
 `;
 
 const TrackInfo = styled.div``;
+
+const TrackName = styled.div`
+  margin-bottom: 4px;
+`;
 
 const TrackImage = styled.img`
   width: 52px;

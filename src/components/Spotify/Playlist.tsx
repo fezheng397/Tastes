@@ -33,7 +33,7 @@ const PlaylistWrapper = styled.div`
   min-width: 400px;
   border-radius: 12px;
   box-shadow: ${({ theme }) => theme.shadows.small};
-  padding: 20px;
+  padding: 32px;
 `;
 
 const PlaylistHeader = styled.div`
