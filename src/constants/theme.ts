@@ -9,6 +9,8 @@ const colors = {
     dark: '#03045e',
     base: '#023e8a',
     light56: '#90e0ef',
+    light24: '#ade8f4',
+    light08: '#caf0f8',
   },
   salmon: {
     base: '#ee8572',

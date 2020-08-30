@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SinglePlaylistResponse } from 'types/spotify';
-import { Header, Text } from 'components/Typography';
 import Track from './Track';
+import PlaylistHeader from './PlaylistHeader';
 
 interface PlaylistProps {
   playlist: SinglePlaylistResponse;
@@ -11,15 +11,7 @@ interface PlaylistProps {
 const Playlist: React.FC<PlaylistProps> = ({ playlist }) => {
   return (
     <PlaylistWrapper>
-      <PlaylistHeader>
-        <HeaderImage src={playlist.images[1].url} />
-        <div>
-          <HeaderText>
-            <Header as='h2'>{playlist.name}</Header>
-          </HeaderText>
-          <Text>Created by {playlist.owner.display_name}</Text>
-        </div>
-      </PlaylistHeader>
+      <PlaylistHeader playlist={playlist} />
       <PlaylistContents>
         {playlist.tracks.items.map((item, index) => (
           <Track index={index} item={item} />
@@ -34,22 +26,6 @@ const PlaylistWrapper = styled.div`
   border-radius: 12px;
   box-shadow: ${({ theme }) => theme.shadows.small};
   padding: 32px;
-`;
-
-const PlaylistHeader = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-`;
-
-const HeaderImage = styled.img`
-  width: 80px;
-  border-radius: 10px;
-  margin-right: 20px;
-`;
-
-const HeaderText = styled.div`
-  padding-bottom: 8px;
 `;
 
 const PlaylistContents = styled.div`
