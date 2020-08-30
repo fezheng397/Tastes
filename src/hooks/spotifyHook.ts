@@ -28,8 +28,6 @@ async function getAccessToken(): Promise<AccessTokenResponse> {
     accessTokenSpec
   );
 
-  console.log('access token res:', response);
-
   return response.data;
 }
 
@@ -59,7 +57,6 @@ export function useSpotifyApi(playlistIds: string[]): SinglePlaylistResponse[] {
 
   async function getNewAccessToken() {
     const res = await getAccessToken();
-    console.log('Res:', res);
     setAccessToken(res.access_token);
     setExpired(res.expires_in < 60);
   }
@@ -77,12 +74,11 @@ export function useSpotifyApi(playlistIds: string[]): SinglePlaylistResponse[] {
       setPlaylists(responses);
     }
     if (count < 1 && accessToken !== '' && !expired) {
-      console.log(accessToken, expired, playlistIds);
       getPlaylists(accessToken, playlistIds);
       setCount((prevState) => prevState + 1);
       console.log(count);
     }
   }, [accessToken, count, expired, playlistIds]);
-  console.log(playlists);
+
   return playlists;
 }
