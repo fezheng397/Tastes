@@ -30,7 +30,11 @@ const Track: React.FC<TrackProps> = ({ index, item }) => {
           </TrackNumber>
           <TrackInfo>
             <TrackName>
-              <Header as='h6' weight={500}>
+              <Header
+                as='h6'
+                color={active ? theme.colors.teal.base : theme.text.dark}
+                weight={500}
+              >
                 {item.track.name}
               </Header>
             </TrackName>
@@ -97,7 +101,7 @@ const TrackNumber = styled.div<{ active: boolean }>`
   ${({ active, theme }) =>
     active &&
     css`
-      background: ${theme.colors.teal.dark};
+      background: ${theme.colors.teal.base};
     `}
 `;
 

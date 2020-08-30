@@ -11,7 +11,13 @@ const PlaylistHeader: React.FC<PlaylistHeaderProps> = ({ playlist }) => {
   return (
     <PlaylistHeaderWrapper>
       {playlist.images ? (
-        <HeaderImage src={playlist.images[0].url} />
+        <a
+          target='_blank'
+          rel='noopener noreferrer'
+          href={playlist.external_urls.spotify}
+        >
+          <HeaderImage src={playlist.images[0].url} />
+        </a>
       ) : (
         <HeaderPlaceholder>
           <PlaceholderIcon />
@@ -21,7 +27,16 @@ const PlaylistHeader: React.FC<PlaylistHeaderProps> = ({ playlist }) => {
         <HeaderText>
           <Header as='h2'>{playlist.name}</Header>
         </HeaderText>
-        <Text>Created by {playlist.owner.display_name}</Text>
+        <Text>
+          Created by
+          <CreatorLink
+            target='_blank'
+            rel='noopener noreferrer'
+            href={playlist.owner.external_urls.spotify}
+          >
+            {' ' + playlist.owner.display_name}
+          </CreatorLink>
+        </Text>
       </div>
     </PlaylistHeaderWrapper>
   );
@@ -58,6 +73,16 @@ const HeaderImage = styled.img`
 
 const HeaderText = styled.div`
   padding-bottom: 8px;
+`;
+
+const CreatorLink = styled.a`
+  cursor: pointer;
+  color: ${({ theme }) => theme.colors.teal.base};
+  font-weight: 500;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.teal.dark};
+  }
 `;
 
 export default PlaylistHeader;
