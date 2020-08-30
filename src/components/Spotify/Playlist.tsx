@@ -22,7 +22,6 @@ const Playlist: React.FC<PlaylistProps> = ({ playlist }) => {
 };
 
 const PlaylistWrapper = styled.div`
-  min-width: 400px;
   border-radius: 12px;
   box-shadow: ${({ theme }) => theme.shadows.small};
   padding: 32px;
