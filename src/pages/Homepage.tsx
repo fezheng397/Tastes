@@ -29,7 +29,7 @@ const tabContent: TabData[] = [
   },
 ];
 
-const Homepage = ({}) => {
+const Homepage = () => {
   const [active, setActive] = useState(tabContent[0]);
 
   return (

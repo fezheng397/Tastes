@@ -107,12 +107,13 @@ const TrackName = styled.div`
   margin-bottom: 4px;
 `;
 
-const TrackImage = styled.img`
-  width: 52px;
-  border-radius: 4px;
-`;
+// const TrackImage = styled.img`
+//   width: 52px;
+//   border-radius: 4px;
+// `;
 
-const TrackDetails = styled.div`
-  margin-top: 16px;
-`;
+// const TrackDetails = styled.div`
+//   margin-top: 16px;
+// `;
+
 export default Track;
