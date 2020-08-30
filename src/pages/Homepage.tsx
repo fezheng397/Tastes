@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Container } from 'components';
 import { Music, Articles } from 'pages';
+import { MediaQuery } from 'components/MediaQuery';
 
 interface HomepageProps {}
 
@@ -35,18 +36,20 @@ const Homepage = () => {
   return (
     <HomepageContainer>
       <Container>
-        <Nav>
-          <NavLogo href='/'>Heading</NavLogo>
-          <Tabs>
-            {tabContent.map((content) => (
-              <Tab>
-                <TabContents onClick={() => setActive(content)}>
-                  {content.displayName}
-                </TabContents>
-              </Tab>
-            ))}
-          </Tabs>
-        </Nav>
+        <MediaQuery queryType='atAndAbove' size='sm'>
+          <Nav>
+            <NavLogo href='/'>Heading</NavLogo>
+            <Tabs>
+              {tabContent.map((content) => (
+                <Tab>
+                  <TabContents onClick={() => setActive(content)}>
+                    {content.displayName}
+                  </TabContents>
+                </Tab>
+              ))}
+            </Tabs>
+          </Nav>
+        </MediaQuery>
       </Container>
       <Container>{active.component}</Container>
     </HomepageContainer>
