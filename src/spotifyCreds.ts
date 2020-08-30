@@ -1,4 +1,7 @@
-// never do this irl xdeee
+require('dotenv').config();
 
-export const clientId: string = process.env.SPOTIFY_CLIENT_ID || '';
-export const clientSecret: string = process.env.SPOTIFY_CLIENT_SECRET || '';
+console.log(process.env);
+
+export const clientId: string = process.env.REACT_APP_SPOTIFY_CLIENT_ID || '';
+export const clientSecret: string =
+  process.env.REACT_APP_SPOTIFY_CLIENT_SECRET || '';
