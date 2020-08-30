@@ -92,7 +92,7 @@ const TrackNumber = styled.div<{ active: boolean }>`
   justify-content: center;
   border-radius: 50%;
   font-weight: 600;
-  transition: background 100ms ease-in;
+  transition: background, height 100ms ease-in;
 
   ${({ active, theme }) =>
     active &&
