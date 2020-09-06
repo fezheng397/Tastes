@@ -5,6 +5,7 @@ import { useSpotifyApi } from '../hooks/spotifyHook';
 import { Playlist } from 'components/Spotify';
 import { Header, Text } from 'components/Typography';
 import { theme } from 'constants/theme';
+import { MediaQuery } from 'constants/breakpoints';
 
 interface MusicProps {}
 
@@ -22,21 +23,40 @@ const Music: React.FC<MusicProps> = () => {
           <Header as='h1'>Our Favorite Playlists</Header>
         </PageHeader>
         <Text size='lg' color={theme.text.light56} weight={500}>
-          A compilation of music Aditya and I have discovered over the years.
+          A compilation of some of the best music we've discovered over the
+          years.
         </Text>
       </Description>
-      {playlists.length > 0 &&
-        playlists.map((playlist) => (
-          <PlaylistWrapper>
-            <Playlist playlist={playlist} />
-          </PlaylistWrapper>
-        ))}
+      <PlaylistSection>
+        {playlists.length > 0 &&
+          playlists.map((playlist) => (
+            <PlaylistContainer>
+              <Playlist playlist={playlist} />
+            </PlaylistContainer>
+          ))}
+      </PlaylistSection>
     </ContentWrapper>
   );
 };
 
-const PlaylistWrapper = styled.div`
-  padding: 20px;
+const PlaylistSection = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 24px;
+  row-gap: 24px;
+  margin: 24px 0;
+  justify-content: center;
+  align-content: center;
+
+  ${MediaQuery('below', 'md')} {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const PlaylistContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Description = styled.div`

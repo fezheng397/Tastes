@@ -31,9 +31,9 @@ const ContentContainer = styled.div`
   padding-left: 230px;
 `;
 
-interface ArticlesProps {}
+interface ReadingsProps {}
 
-const Articles: React.FC<ArticlesProps> = () => {
+const Readings: React.FC<ReadingsProps> = () => {
   const [category, setCategory] = useState('technology');
   return (
     <Container>
@@ -58,4 +58,4 @@ const renderContent = (category: string) => {
   return <h1>{category}</h1>;
 };
 
-export default Articles;
+export default Readings;

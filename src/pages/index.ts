@@ -1,2 +1,2 @@
-export { default as Articles } from './Articles';
+export { default as Readings } from './Readings';
 export { default as Music } from './Music';

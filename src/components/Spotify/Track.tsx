@@ -105,19 +105,14 @@ const TrackNumber = styled.div<{ active: boolean }>`
     `}
 `;
 
-const TrackInfo = styled.div``;
+const TrackInfo = styled.div`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
 
 const TrackName = styled.div`
   margin-bottom: 4px;
 `;
-
-// const TrackImage = styled.img`
-//   width: 52px;
-//   border-radius: 4px;
-// `;
-
-// const TrackDetails = styled.div`
-//   margin-top: 16px;
-// `;
 
 export default Track;

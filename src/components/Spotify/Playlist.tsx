@@ -25,10 +25,10 @@ const PlaylistWrapper = styled.div`
   border-radius: 12px;
   box-shadow: ${({ theme }) => theme.shadows.small};
   padding: 32px;
+  max-width: 400px;
 `;
 
 const PlaylistContents = styled.div`
-  padding: 16px;
   max-height: 300px;
   overflow-y: scroll;
 `;

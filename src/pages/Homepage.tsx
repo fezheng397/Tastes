@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Container } from 'components';
-import { Music, Articles } from 'pages';
+import { Music, Readings } from 'pages';
 import { MediaQuery } from 'components/MediaQuery';
 
 interface HomepageProps {}
@@ -19,14 +19,9 @@ const tabContent: TabData[] = [
     component: <Music />,
   },
   {
-    id: 'articles',
-    displayName: 'Articles',
-    component: <Articles />,
-  },
-  {
     id: 'readings',
     displayName: 'Readings',
-    component: <div>Readings</div>,
+    component: <Readings />,
   },
 ];
 

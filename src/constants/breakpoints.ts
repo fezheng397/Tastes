@@ -16,13 +16,6 @@ export const Query = (type: MediaQueryType, size: MediaQuerySize) => {
   return `(${query}: ${Breakpoints[size]})`;
 };
 
-export const MediaQuery = (type: MediaQueryType) => {
-  return {
-    xl: `@media ${Query(type, 'xl')}`,
-    lg: `@media ${Query(type, 'lg')}`,
-    md: `@media ${Query(type, 'md')}`,
-    sm: `@media ${Query(type, 'sm')}`,
-    xs: `@media ${Query(type, 'xs')}`,
-    xxs: `@media ${Query(type, 'xxs')}`,
-  };
+export const MediaQuery = (type: MediaQueryType, size: MediaQuerySize) => {
+  return `@media ${Query(type, size)}`;
 };
