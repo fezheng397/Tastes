@@ -24,13 +24,14 @@ const Playlist: React.FC<PlaylistProps> = ({ playlist }) => {
 const PlaylistWrapper = styled.div`
   border-radius: 12px;
   box-shadow: ${({ theme }) => theme.shadows.small};
-  padding: 32px;
+  padding: 24px;
   max-width: 400px;
 `;
 
 const PlaylistContents = styled.div`
   max-height: 300px;
   overflow-y: scroll;
+  padding: 8px;
 `;
 
 export default Playlist;

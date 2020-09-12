@@ -12,19 +12,19 @@ interface TrackProps {
 const Track: React.FC<TrackProps> = ({ index, item }) => {
   const [active, setActive] = useState(false);
   return (
-    <a
-      href={item.track.external_urls.spotify}
-      target='_blank'
-      rel='noopener noreferrer'
+    <TrackWrapper
+      active={active}
+      onMouseEnter={() => setActive(true)}
+      onMouseLeave={() => setActive(false)}
     >
-      <TrackWrapper
-        active={active}
-        onMouseEnter={() => setActive(true)}
-        onMouseLeave={() => setActive(false)}
+      <a
+        href={item.track.external_urls.spotify}
+        target='_blank'
+        rel='noopener noreferrer'
       >
         <TrackHeader>
           <TrackNumber active={active}>
-            <Text color={active ? theme.text.alt : theme.text.light56}>
+            <Text color={active ? theme.text.active : theme.text.light56}>
               {index}
             </Text>
           </TrackNumber>
@@ -32,7 +32,7 @@ const Track: React.FC<TrackProps> = ({ index, item }) => {
             <TrackName>
               <Header
                 as='h6'
-                color={active ? theme.colors.teal.base : theme.text.dark}
+                color={active ? theme.text.active : theme.text.dark}
                 weight={500}
               >
                 {item.track.name}
@@ -43,15 +43,9 @@ const Track: React.FC<TrackProps> = ({ index, item }) => {
               {getArtistNames(item.track.artists)}
             </Text>
           </TrackInfo>
-        </TrackHeader>
-        {/*
-        {active && (
-          <TrackDetails>
-            <TrackImage src={item.track.album.images[2].url} />
-          </TrackDetails>
-        )} */}
-      </TrackWrapper>
-    </a>
+        </TrackHeader>{' '}
+      </a>
+    </TrackWrapper>
   );
 };
 
@@ -88,27 +82,18 @@ const TrackHeader = styled.div`
 
 const TrackNumber = styled.div<{ active: boolean }>`
   margin-right: 20px;
-  height: 32px;
-  width: 32px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  font-weight: 600;
-  transition: background, height 100ms ease-in;
-
-  ${({ active, theme }) =>
-    active &&
-    css`
-      background: ${theme.colors.teal.base};
-    `}
+  font-weight: 700;
+  transition: color 100ms ease-in;
 `;
 
 const TrackInfo = styled.div`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `;
 
 const TrackName = styled.div`

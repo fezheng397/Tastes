@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import { Container } from 'components';
 import { Music, Readings } from 'pages';
 import { MediaQuery } from 'components/MediaQuery';
+import { MobileNav } from 'components/MobileNav';
 
 interface HomepageProps {}
 
-type TabData = {
+export type TabData = {
   id: string;
   displayName: string;
   component: React.ReactNode;
@@ -26,7 +27,7 @@ const tabContent: TabData[] = [
 ];
 
 const Homepage = () => {
-  const [active, setActive] = useState(tabContent[0]);
+  const [active, setActive] = useState<TabData>(tabContent[0]);
 
   return (
     <HomepageContainer>
@@ -45,13 +46,22 @@ const Homepage = () => {
             </Tabs>
           </Nav>
         </MediaQuery>
+        <MediaQuery queryType='below' size='sm'>
+          <MobileNav
+            active={active}
+            setActive={setActive}
+            tabContent={tabContent}
+          />
+        </MediaQuery>
+        {active.component}
       </Container>
-      <Container>{active.component}</Container>
     </HomepageContainer>
   );
 };
 
-const HomepageContainer = styled.div``;
+const HomepageContainer = styled.div`
+  padding-bottom: 80px;
+`;
 
 const Nav = styled.div`
   display: flex;

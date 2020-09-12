@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Header, Text } from 'components/Typography';
 import { SinglePlaylistResponse } from 'types/spotify';
 import PlaylistIcon from './PlaylistIcon';
-
+import { MediaQuery } from 'components/MediaQuery';
 interface PlaylistHeaderProps {
   playlist: SinglePlaylistResponse;
 }
@@ -25,7 +25,12 @@ const PlaylistHeader: React.FC<PlaylistHeaderProps> = ({ playlist }) => {
       )}
       <div>
         <HeaderText>
-          <Header as='h2'>{playlist.name}</Header>
+          <MediaQuery queryType='atAndAbove' size='sm'>
+            <Header as='h2'>{playlist.name}</Header>
+          </MediaQuery>
+          <MediaQuery queryType='below' size='sm'>
+            <Header as='h4'>{playlist.name}</Header>
+          </MediaQuery>
         </HeaderText>
         <Text>
           Created by

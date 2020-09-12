@@ -34,6 +34,7 @@ export const theme = {
     dark: colors.text.blackAccent,
     base: colors.text.black,
     light56: colors.text.gray,
+    active: colors.teal.base,
     alt: colors.text.white,
   },
   borders: {
