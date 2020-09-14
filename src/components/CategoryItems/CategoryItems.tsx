@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Text } from 'components/Typography';
+import { Text } from 'components/Typography';
 import styled from 'styled-components';
 
 interface CategoryData {
@@ -9,8 +9,8 @@ interface CategoryData {
 }
 
 interface LinkInfo {
-  descriptor: string,
-  url: string,
+  descriptor: string;
+  url: string;
 }
 
 interface LinkData {
@@ -19,47 +19,47 @@ interface LinkData {
 }
 
 interface CategoryItemsProps {
-  category: CategoryData
+  category: CategoryData;
 }
 
 const ContentContainer = styled.div`
   padding-left: 30px;
-`
+`;
 const LinkContainer = styled.div`
   padding-left: 20px;
-`
+`;
 const HeaderElems = styled(Text)`
   margin: 20px 0;
-`
+`;
 const ListElems = styled(Text)`
   margin: 20px 0;
   &:hover {
     text-decoration: underline;
   }
-`
+`;
 
 const CategoryItems: React.FC<CategoryItemsProps> = ({ category }) => {
-    return (
-      <div>
-        <HeaderElems as='h2'>{category.displayName}</HeaderElems>
-          {category.linkData.map((data) => {
-            return (
-              <ContentContainer>
-                <HeaderElems as ='h3'>{data.header}</HeaderElems>
-                  <LinkContainer>
-                    {data.links.map((link) => {
-                      return (
-                        <ListElems>
-                          <a href={link.url}>{`• ${link.descriptor}`}</a>
-                        </ListElems>
-                      )
-                    })}
-                  </LinkContainer>
-              </ContentContainer>
-            )
-          })}
-      </div>
-    )
-  };
+  return (
+    <div>
+      <HeaderElems as='h2'>{category.displayName}</HeaderElems>
+      {category.linkData.map((data) => {
+        return (
+          <ContentContainer>
+            <HeaderElems as='h3'>{data.header}</HeaderElems>
+            <LinkContainer>
+              {data.links.map((link) => {
+                return (
+                  <ListElems>
+                    <a href={link.url}>{`• ${link.descriptor}`}</a>
+                  </ListElems>
+                );
+              })}
+            </LinkContainer>
+          </ContentContainer>
+        );
+      })}
+    </div>
+  );
+};
 
 export default CategoryItems;

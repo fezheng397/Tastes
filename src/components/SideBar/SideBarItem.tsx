@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Text } from 'components/Typography';
-import { theme } from 'constants/theme';
 
 const SideBarItemStyled = styled(Text)`
   padding: 6px 8px 6px 16px;
