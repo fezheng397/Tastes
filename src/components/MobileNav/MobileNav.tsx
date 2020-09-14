@@ -45,6 +45,11 @@ const MobileNavItem = styled.div`
   height: 100%;
   width: 100%;
   cursor: pointer;
+  border-right: 1px solid ${theme.divider};
+
+  &:last-child {
+    border-right: 0;
+  }
 `;
 
 const MobileNavWrapper = styled.div`

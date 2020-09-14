@@ -15,6 +15,9 @@ const colors = {
   salmon: {
     base: '#ee8572',
   },
+  opacity: {
+    black08: 'rgba(0, 0, 0, 0.08)',
+  },
 };
 
 const fonts = {
@@ -38,6 +41,7 @@ export const theme = {
     alt: colors.text.white,
   },
   borders: {
-    primary: colors.text.gray,
+    primary: colors.opacity.black08,
   },
+  divider: colors.opacity.black08,
 };
