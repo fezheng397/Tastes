@@ -4,12 +4,12 @@ import { SideBarItem } from './SideBarItem';
 
 const SideBarContainer = styled.div`
   width: 160px;
-  position: fixed;
   background-color: #e0e0eb;
   overflow-x: hidden;
   padding-top: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
+  padding-right: 20px;
   border-radius: 10px 100px / 120px;
 `;
 

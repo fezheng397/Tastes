@@ -3,10 +3,16 @@ import styled from 'styled-components';
 import { SideBar } from 'components/SideBar';
 import { CategoryItems } from 'components/CategoryItems';
 import { ContentWrapper } from './presenters';
+import { categories as categoryItems } from 'constants/links';
 
 const ContentContainer = styled.div`
-  padding-left: 230px;
+  padding-left: 65px;
 `;
+
+const OuterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`
 
 interface ReadingsProps {}
 
@@ -16,16 +22,16 @@ const sidebarItems = [
     displayName: 'Technology',
   },
   {
-    category: 'politics',
-    displayName: 'Politics',
+    category: 'business',
+    displayName: 'Startups/Business',
   },
   {
-    category: 'philosophy',
-    displayName: 'Philosophy',
+    category: 'healthcare',
+    displayName: 'Healthcare',
   },
   {
-    category: 'memes',
-    displayName: 'Comics/Memes',
+    category: 'social',
+    displayName: 'Social Justice',
   },
 ];
 
@@ -37,10 +43,14 @@ const Readings: React.FC<ReadingsProps> = () => {
   };
 
   return (
-    <ContentWrapper>
-      <SideBar items={sidebarItems} onItemChange={onCategoryChange} />
-      <ContentContainer>{renderContent(category)}</ContentContainer>
-    </ContentWrapper>
+      <ContentWrapper>
+        <OuterContainer>
+          <div>
+            <SideBar items={sidebarItems} onItemChange={onCategoryChange} />
+          </div>
+          <ContentContainer>{renderContent(category)}</ContentContainer>
+        </OuterContainer>
+      </ContentWrapper>
   );
 };
 
@@ -53,40 +63,5 @@ const renderContent = (category: string) => {
   }
   return null
 };
-
-const categoryItems = [
-  {
-    category: 'technology',
-    displayName: 'Technology',
-    linkData: [
-      {
-        header: 'Startups',
-        links: [
-          {
-            descriptor: 'How AirBNB Handles Distributed Payments',
-            url: 'https://medium.com/airbnb-engineering/avoiding-double-payments-in-a-distributed-payments-system-2981f6b070bb',
-          },
-          {
-            descriptor: 'Codebase is an Organism',
-            url: 'https://meltingasphalt.com/a-codebase-is-an-organism/',
-          },
-        ]
-      },
-      {
-        header: 'Space',
-        links: [
-          {
-            descriptor: 'Nobody Cares About Quality',
-            url: 'https://lethain.com/nobody-cares-about-quality/',
-          },
-          {
-            descriptor: 'Epic Sucks',
-            url: 'https://www.nytimes.com/2019/11/01/health/epic-electronic-health-records.html?smid=nytcore-ios-share',
-          }
-        ]
-      },
-    ]
-  }
-]
 
 export default Readings;
