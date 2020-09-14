@@ -1,4 +1,5 @@
 import React from 'react';
+import { Header, Text } from 'components/Typography';
 import styled from 'styled-components';
 
 interface CategoryData {
@@ -7,15 +8,58 @@ interface CategoryData {
   linkData: Array<LinkData>;
 }
 
-interface LinkData {
-  header: string;
-  links: Array<string>;
+interface LinkInfo {
+  descriptor: string,
+  url: string,
 }
 
-interface CategoryItemsProps {}
+interface LinkData {
+  header: string;
+  links: Array<LinkInfo>;
+}
 
-const CategoryItems: React.FC<CategoryItemsProps> = ({}) => {
-  return <div></div>;
-};
+interface CategoryItemsProps {
+  category: CategoryData
+}
+
+const ContentContainer = styled.div`
+  padding-left: 30px;
+`
+const LinkContainer = styled.div`
+  padding-left: 20px;
+`
+const HeaderElems = styled(Text)`
+  margin: 20px 0;
+`
+const ListElems = styled(Text)`
+  margin: 20px 0;
+  &:hover {
+    text-decoration: underline;
+  }
+`
+
+const CategoryItems: React.FC<CategoryItemsProps> = ({ category }) => {
+    return (
+      <div>
+        <HeaderElems as='h2'>{category.displayName}</HeaderElems>
+          {category.linkData.map((data) => {
+            return (
+              <ContentContainer>
+                <HeaderElems as ='h3'>{data.header}</HeaderElems>
+                  <LinkContainer>
+                    {data.links.map((link) => {
+                      return (
+                        <ListElems>
+                          <a href={link.url}>{`• ${link.descriptor}`}</a>
+                        </ListElems>
+                      )
+                    })}
+                  </LinkContainer>
+              </ContentContainer>
+            )
+          })}
+      </div>
+    )
+  };
 
 export default CategoryItems;
