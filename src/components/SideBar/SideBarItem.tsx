@@ -8,7 +8,7 @@ const SideBarItemStyled = styled(Text)`
 
   &:hover {
     color: #f1f1f1;
-    cursor: default;
+    cursor: pointer;
   }
 `;
 
