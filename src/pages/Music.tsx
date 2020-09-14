@@ -11,7 +11,8 @@ interface MusicProps {}
 
 const playlistIds = [
   '4tuwuzl3GRJNYEoDQd434U?si=5alfQISQTDKaZcuVTt8Umg',
-  '4arGHjGh3Fv1yKCOCUsBMT?si=rWtcIT9bTLaOPA7mol65xg',
+  '6Nu4LgpH5icHjAt7BPRL1r?si=-AUnvCKtTwypRjFzmSvTwg',
+  '4fGPNz4AI1vFK5DaLmyLJq?si=IG0K6xevSam3bo5Vs034vg',
 ];
 
 const Music: React.FC<MusicProps> = () => {
