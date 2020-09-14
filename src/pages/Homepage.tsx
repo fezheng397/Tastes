@@ -34,7 +34,7 @@ const Homepage = () => {
       <Container>
         <MediaQuery queryType='atAndAbove' size='sm'>
           <Nav>
-            <NavLogo href='/'>Heading</NavLogo>
+            <NavLogo href='/'>things we like</NavLogo>
             <Tabs>
               {tabContent.map((content) => (
                 <Tab>
